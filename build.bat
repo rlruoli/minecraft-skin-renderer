@@ -1,0 +1,1 @@
+go build -ldflags="-s -w" -o main.exe main.go && upx -9 main.exe
