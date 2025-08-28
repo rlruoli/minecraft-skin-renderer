@@ -69,13 +69,13 @@ func main() {
 
 			file, err = os.Create("out/" + filename)
 			if err != nil {
-				panic(err)
+				exit(err.Error())
 			}
-			file.Close()
-
 			if err := png.Encode(file, out); err != nil {
-				panic(err)
+				exit(err.Error())
 			}
+
+			file.Close()
 		}
 		exit("执行完成，耗时：" + time.Since(start).String())
 	} else {
@@ -94,6 +94,8 @@ func convertToNRGBA(img image.Image) *image.NRGBA {
 func exit(info string) {
 	fmt.Println(info)
 	fmt.Println("五秒后退出")
+	for {
+	}
 	time.Sleep(time.Second * 5)
 	os.Exit(0)
 }
