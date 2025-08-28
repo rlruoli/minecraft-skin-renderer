@@ -94,8 +94,6 @@ func convertToNRGBA(img image.Image) *image.NRGBA {
 func exit(info string) {
 	fmt.Println(info)
 	fmt.Println("五秒后退出")
-	for {
-	}
 	time.Sleep(time.Second * 5)
 	os.Exit(0)
 }
